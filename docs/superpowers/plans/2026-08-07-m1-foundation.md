@@ -112,7 +112,7 @@ body {
 .sp-btn-primary { background: var(--sp-accent); color: #241d05; font-weight: 700; }
 .sp-btn-danger { background: var(--sp-accent-2); }
 .sp-btn-ghost { background: transparent; border: 1px solid #3d4f9f; }
-.sp-btn-close { position: absolute; top: 12px; right: 12px; min-width: 40px; padding: 8px; }
+.sp-btn-close { position: absolute; top: 12px; right: 12px; min-width: 48px; min-height: 48px; padding: 8px; }
 .sp-result { text-align: center; }
 .sp-result-stars { font-size: 44px; color: var(--sp-accent); }
 .sp-result-points { color: var(--sp-text-dim); }
@@ -125,11 +125,11 @@ body {
 .sp-pin-input { width: 100%; padding: 12px; font-size: 22px; letter-spacing: 8px; text-align: center; border-radius: 10px; border: 1px solid #3d4f9f; background: #0e1533; color: var(--sp-text); margin: 8px 0; }
 .sp-hint { color: var(--sp-accent-2); min-height: 20px; }
 .sp-tabs { display: flex; gap: 8px; margin: 12px 0; }
-.sp-tab { background: #2a3a7a; border: none; color: var(--sp-text); padding: 10px 16px; border-radius: 10px; cursor: pointer; }
+.sp-tab { background: #2a3a7a; border: none; color: var(--sp-text); padding: 10px 16px; border-radius: 10px; cursor: pointer; min-height: 48px; }
 .sp-progress-row, .sp-usage-row, .sp-setting-row { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid #223063; }
 .sp-usage-total { color: var(--sp-accent); }
 .sp-setting-row { align-items: center; }
-.sp-limit-input { width: 90px; padding: 8px; border-radius: 8px; border: 1px solid #3d4f9f; background: #0e1533; color: var(--sp-text); }
+.sp-limit-input { width: 90px; padding: 8px; border-radius: 8px; border: 1px solid #3d4f9f; background: #0e1533; color: var(--sp-text); min-height: 48px; }
 ```
 
 - [ ] **Step 3: 验证脚手架**

@@ -10,11 +10,13 @@
 
   var storage = window.Superpowers.storage;
   var scoring = window.Superpowers.scoring;
+  var usage = window.Superpowers.usage;
   var audio = window.Superpowers.audio;
   var ui = window.Superpowers.ui;
   var parentArea = window.Superpowers.parentArea;
 
   var save = null;
+  var sessionTimer = null;
 
   function refreshHeader() {
     document.getElementById("starCount").textContent = "★ " + save.stars;
@@ -49,11 +51,40 @@
     });
   }
 
+  function checkLimit() {
+    if (usage.isOverLimit(save)) {
+      if (!document.querySelector(".sp-rest-overlay")) {
+        var overlay = document.createElement("div");
+        overlay.className = "sp-rest-overlay";
+        overlay.innerHTML = '<div class="sp-rest-card"><div class="sp-rest-emoji">☄️</div><h2>该休息啦</h2><p>去喝口水，看看窗外吧！</p><p class="sp-rest-note">今日已达每日限时，家长可在家长区调整。</p></div>';
+        document.body.appendChild(overlay);
+        var clicks = 0;
+        overlay.addEventListener("click", function () {
+          clicks += 1;
+          if (clicks >= 5) {
+            parentArea.openParentArea(onSettingsChanged);
+          }
+        });
+      }
+    } else {
+      var rest = document.querySelector(".sp-rest-overlay");
+      if (rest) rest.remove();
+    }
+  }
+
   function onSettingsChanged() {
     save = storage.load();
     audio.setMuted(save.settings.muted);
     refreshHeader();
     renderMap();
+    checkLimit();
+  }
+
+  function tickSession() {
+    save = usage.addUsage(save, 1);
+    storage.save(save);
+    refreshHeader();
+    checkLimit();
   }
 
   function init() {
@@ -85,6 +116,14 @@
         }
       }
     });
+
+    document.addEventListener("pointerdown", function () {
+      audio.init();
+      audio.startBgm();
+    }, { once: true });
+
+    sessionTimer = setInterval(tickSession, 60000);
+    checkLimit();
   }
 
   window.Superpowers = window.Superpowers || {};

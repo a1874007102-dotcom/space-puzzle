@@ -54,3 +54,15 @@ body {
 .sp-usage-total { color: var(--sp-accent); }
 .sp-setting-row { align-items: center; }
 .sp-limit-input { width: 90px; padding: 8px; border-radius: 8px; border: 1px solid #3d4f9f; background: #0e1533; color: var(--sp-text); min-height: 48px; }
+.sp-screen { max-width: 720px; margin: 0 auto; padding: 16px; }
+.sp-game-title { text-align: center; font-size: 26px; margin: 0; }
+.sp-difficulty { display: block; margin: 14px auto; min-width: 240px; }
+.sp-btn-locked { opacity: 0.5; }
+.sp-stat-line { display: flex; justify-content: center; gap: 18px; font-size: 18px; margin: 12px 0; }
+.sp-question { font-size: 42px; text-align: center; margin: 24px 0; }
+.sp-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 520px; margin: 0 auto; }
+.sp-option { font-size: 26px; min-height: 72px; }
+.sp-board { display: grid; gap: 10px; max-width: 640px; margin: 16px auto; }
+.sp-card { background: #232d66; border: 2px solid #3d4f9f; border-radius: 14px; font-size: 26px; min-height: 80px; color: transparent; cursor: pointer; }
+.sp-card-open, .sp-card-matched { background: #3b4aa0; color: var(--sp-text); }
+.sp-card-matched { border-color: var(--sp-accent); }

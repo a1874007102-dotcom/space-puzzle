@@ -4,3 +4,5 @@ require("./scoring.test.js");
 require("./usage.test.js");
 require("./ui.test.js");
 require("./parent-area.test.js");
+require("./arithmetic-rules.test.js");
+require("./memory-rules.test.js");

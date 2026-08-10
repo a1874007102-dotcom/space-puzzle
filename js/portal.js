@@ -2,10 +2,10 @@
   "use strict";
 
   var GAMES = [
-    { id: "arithmetic", name: "算术速算", icon: "🪐" },
-    { id: "memory", name: "记忆翻牌", icon: "🌕" },
-    { id: "spelling", name: "拼单词", icon: "☄️" },
-    { id: "logic", name: "逻辑推理", icon: "🛸" }
+    { id: "arithmetic", name: "算术速算", icon: "🪐", url: "arithmetic.html" },
+    { id: "memory", name: "记忆翻牌", icon: "🌕", url: "memory.html" },
+    { id: "spelling", name: "拼单词", icon: "☄️", url: null },
+    { id: "logic", name: "逻辑推理", icon: "🛸", url: null }
   ];
 
   var storage = window.Superpowers.storage;
@@ -37,7 +37,11 @@
         html += '<span class="sp-planet-stars">' + "★".repeat(stars) + "</span>";
         card.innerHTML = html;
         card.addEventListener("click", function () {
-          ui.showToast(game.name + " 即将上线，敬请期待！");
+          if (game.url) {
+            window.location.href = game.url;
+          } else {
+            ui.showToast(game.name + " 即将上线，敬请期待！");
+          }
         });
       } else {
         var need = 6 * index - save.stars;

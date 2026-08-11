@@ -4,7 +4,7 @@
   var GAMES = [
     { id: "arithmetic", name: "算术速算", icon: "🪐", url: "arithmetic.html" },
     { id: "memory", name: "记忆翻牌", icon: "🌕", url: "memory.html" },
-    { id: "spelling", name: "拼单词", icon: "☄️", url: null },
+    { id: "spelling", name: "拼单词", icon: "☄️", url: "spelling.html" },
     { id: "logic", name: "逻辑推理", icon: "🛸", url: null }
   ];
 

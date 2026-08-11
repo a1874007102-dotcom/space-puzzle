@@ -20,14 +20,20 @@
     return node;
   }
 
+  function starsText(stars) {
+    return "★".repeat(stars) + "☆".repeat(3 - stars);
+  }
+
   function renderDifficulty() {
     screen.innerHTML = "";
     screen.appendChild(el("h2", "sp-game-title", "选择难度"));
     var names = { 1: "新手", 2: "探险家", 3: "舰长" };
     for (var lv = 1; lv <= 3; lv++) {
       (function (levelNumber) {
-        var unlocked = scoring.difficultyUnlocked(save.games.arithmetic, levelNumber);
-        var label = names[levelNumber] + (unlocked ? "" : "（需 " + 2 * (levelNumber - 1) + " 星）");
+        var game = save.games.arithmetic || {};
+        var stars = (game.levels && game.levels[levelNumber]) || 0;
+        var unlocked = scoring.difficultyUnlocked(game, levelNumber);
+        var label = names[levelNumber] + " " + starsText(stars) + (unlocked ? "" : "（需 " + 2 * (levelNumber - 1) + " 星）");
         var btn = el("button", "sp-btn sp-difficulty" + (unlocked ? "" : " sp-btn-locked"), label);
         btn.addEventListener("click", function () { if (unlocked) start(levelNumber); });
         screen.appendChild(btn);
@@ -48,7 +54,9 @@
   function renderGame() {
     screen.innerHTML = "";
     var line = el("div", "sp-stat-line");
-    line.appendChild(el("span", "sp-timer", "⏱ 60"));
+    var timerSpan = el("span", "sp-timer", "⏱ 60");
+    timerSpan.id = "timer";
+    line.appendChild(timerSpan);
     line.appendChild(el("span", "sp-score", "得分 0"));
     line.appendChild(el("span", "sp-combo", "连击 0"));
     screen.appendChild(line);

@@ -76,3 +76,4 @@ body {
 .sp-chip-used { opacity: 0.35; }
 .sp-chip-correct { border-color: var(--sp-accent); background: #3b4aa0; }
 .sp-clear-btn { margin-right: 12px; }
+.sp-question-logic { font-size: 24px; line-height: 1.7; margin: 20px 8px; }

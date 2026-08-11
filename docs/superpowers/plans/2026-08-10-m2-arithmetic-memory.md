@@ -98,7 +98,8 @@ h.test("starsForRound 星级阈值", function () {
   h.assertEqual(rules.starsForRound(15, 15), 3);
   h.assertEqual(rules.starsForRound(14, 14), 2);
   h.assertEqual(rules.starsForRound(10, 10), 2);
-  h.assertEqual(rules.starsForRound(8, 10), 1);
+  h.assertEqual(rules.starsForRound(8, 10), 2);
+  h.assertEqual(rules.starsForRound(7, 10), 1);
   h.assertEqual(rules.starsForRound(5, 10), 0);
   h.assertEqual(rules.starsForRound(0, 0), 0);
 });

@@ -7,3 +7,4 @@ require("./parent-area.test.js");
 require("./arithmetic-rules.test.js");
 require("./memory-rules.test.js");
 require("./game-dom.test.js");
+require("./spelling-rules.test.js");

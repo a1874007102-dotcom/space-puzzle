@@ -48,7 +48,9 @@
   function renderGame() {
     screen.innerHTML = "";
     var line = el("div", "sp-stat-line");
-    line.appendChild(el("span", "sp-timer", "⏱ 60"));
+    var timerSpan = el("span", "sp-timer", "⏱ 60");
+    timerSpan.id = "timer";
+    line.appendChild(timerSpan);
     line.appendChild(el("span", "sp-score", "得分 0"));
     line.appendChild(el("span", "sp-combo", "连击 0"));
     screen.appendChild(line);
